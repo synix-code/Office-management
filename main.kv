@@ -1,0 +1,2314 @@
+ScreenManager:
+    SplashScreen:
+    LoginScreen:
+    SignupScreen:
+    MainScreen:
+    EntryScreen:
+    AttendenceScreen:
+    ViewScreen:
+    SettingsScreen:
+    InWardScreen:
+    OutWardScreen:
+    ProfileScreen:
+    EmployeeFormScreen:
+    AboutAppScreen:
+    AboutDevScreen:
+    ThemeScreen:
+    ArrivalScreen:
+    DepartureScreen:
+    FillAttendenceScreen:
+    FillDepAttendenceScreen:
+    DeleteScreen:
+    DeleScreen:
+
+
+<SplashScreen>:
+    name: "splash"
+    FloatLayout:
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(125), dp(125)
+            pos_hint: {"center_x":0.5,"center_y":0.7}
+
+        Label:
+            text: "Office  Hub"
+            pos_hint: {"center_x":0.5,"center_y":0.55}
+            font_size: "45sp"
+            font_name: "fnt/shimosa.regular.ttf"
+            bold: True
+            italic: True
+            color: "FF69B4"
+
+        MDSpinner:
+            size_hint: None, None
+            size: dp(55), dp(55)
+            pos_hint: {"center_x":0.5,"center_y":0.35}
+            active: True
+            color: 1, 0.4, 0.7, 1  # Pink color (same as "Office Hub" text)
+
+        Label:
+            text: "AS Developer"
+            pos_hint: {"center_x":0.5,"center_y":0.1}
+            font_size: "40sp"
+            font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+            bold: True
+            italic: True
+            color: "1A237E"
+
+
+
+
+<LoginScreen>:
+    name: "login"
+    FloatLayout:
+        Label:
+            text: "Welcome Back sir"
+            pos_hint: {"center_x":0.5,"center_y":0.95}
+            font_size: "45sp"
+            font_name: "fnt/shimosa.regular.ttf"
+            bold: True
+            italic: True
+            color: "FF69B4"
+
+        MDCard:
+            size_hint: None, None
+            size: "280dp", "200dp"
+            elevation: 4
+            radius: [20, 20, 20, 20]
+            padding: dp(16)
+            pos_hint: {"center_x": 0.5, "center_y": 0.68}
+            md_bg_color: 1, 1, 1, 1  # white background
+
+        MDTextField:
+            id: email_log
+            hint_text: "Enter your Email"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            #mode: "rectangle"
+            icon_left: "account"
+            pos_hint: {"center_x": 0.5, "center_y": 0.78}
+
+        MDTextField:
+            id: eye_btn
+            hint_text: "Enter your Password"
+            helper_text: ""
+            size_hint_x: None
+            password: True
+            width: dp(250)
+            #mode: "rectangle"
+            icon_left: "key"
+            pos_hint: {"center_x": 0.5, "center_y": 0.67}
+
+        MDIconButton:
+            id: change_eye
+            icon: "eye" 
+            size_hint: (.1,.06)
+            pos_hint: {"center_x": 0.85, "center_y": 0.67}
+            on_release: app.go_back()  # Function to call when clicked
+            theme_text_color: "Custom"
+            text_color: "FF69B4"
+            on_release: app.password_show_hide()
+
+        MDRaisedButton:
+            id: login
+            text: "Login"
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x":0.5,"center_y":0.58}
+            font_size: "10sp"
+            font_name: "fnt/horror-Origins-demo.ttf"
+            bold: True
+            italic: True
+            color: (0,0,1,1)
+            md_bg_color: "FF69B4"
+            on_release: app.login_clicked()
+
+        Label:
+            text: "Don't Have Account ? "
+            pos_hint: {"center_x":0.5,"center_y":0.4}
+            font_size: "14sp"
+            font_name: "fnt/horror-Origins-demo.ttf"
+            bold: True
+            italic: True
+            color: (0,0,0,1)
+
+        MDRaisedButton:
+            text: "Create new account"
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x":0.5,"center_y":0.3}
+            font_size: "10sp"
+            font_name: "fnt/horror-Origins-demo.ttf"
+            bold: True
+            italic: True
+            color: (0,0,1,1)
+            md_bg_color: "FF69B4"
+            on_release: app.signup()
+            
+        MDSpinner:
+            id: login_spinner
+            size_hint: None, None
+            size: dp(70), dp(70)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            line_width: 4
+            color: (1,0,0,1)
+            active: False
+
+        Label:
+            text: "AS Developer"
+            pos_hint: {"center_x":0.5,"center_y":0.1}
+            font_size: "40sp"
+            font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+            bold: True
+            italic: True
+            color: "1A237E"
+
+
+
+
+
+
+<SignupScreen>:
+    name: "signup"
+    FloatLayout:
+        id: all_widget
+
+
+
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"top": 1, "left": 0}
+            on_release: app.go_back()
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0, 1
+
+        Label:
+            text: "Welcome sir"
+            pos_hint: {"center_x":0.5,"center_y":0.97}
+            font_size: "45sp"
+            font_name: "fnt/shimosa.regular.ttf"
+            bold: True
+            italic: True
+            color: "FF69B4"
+
+            
+
+        MDTextField:
+            id: company_name
+            hint_text: "Enter your Company Name"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            mode: "rectangle"
+            icon_left: "domain"
+            pos_hint: {"center_x": 0.5, "center_y": 0.87}
+            on_text: app.check_comp()
+            on_focus: app.check_comp()
+
+        MDTextField:
+            id: owner_name
+            hint_text: "Company owner Name"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            mode: "rectangle"
+            icon_left: "account-tie"
+            pos_hint: {"center_x": 0.5, "center_y": 0.75}
+            on_text: app.check_owner()
+            on_focus: app.check_owner()
+
+        MDTextField:
+            id: email
+            hint_text: "Enter your Email"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(200)
+            mode: "rectangle"
+            icon_left: "email"
+            pos_hint: {"center_x": 0.42, "center_y": 0.63}
+            on_text: app.check_email()
+            on_focus: app.check_email()
+
+        MDTextButton:
+            id: send_mail
+            text: "Send OTP"
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x":0.88,"center_y":0.63}
+            font_size: "10sp"
+            font_name: "fnt/horror-Origins-demo.ttf"
+            bold: True
+            italic: True
+            color: (0,0,1,1)
+            on_release: app.send_mail()
+
+        MDTextField:
+            id: otp
+            hint_text: "Enter OTP"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            mode: "rectangle"
+            icon_left: "shield-key"
+            max_text_length: 6
+            input_filter: "int"
+            pos_hint: {"center_x": 0.5, "center_y": 0.51}
+            on_text: app.check_otp()
+            on_focus: app.check_otp()
+
+        MDTextField:
+            id: password
+            hint_text: "Create your Password"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            mode: "rectangle"
+            icon_left: "lock"
+            password: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.39}
+            on_text: app.check_password()
+            on_focus: app.check_password()
+
+        MDTextField:
+            id: confirm_password
+            hint_text: "Confirm your Password"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            mode: "rectangle"
+            icon_left: "lock-check"
+            password: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.27}
+            on_text: app.check_password_con()
+            on_focus: app.check_password_con()
+
+        MDRaisedButton:
+            id: request
+            text: "Request a account"
+            disabled: True
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x":0.5,"center_y":0.15}
+            font_size: "10sp"
+            font_name: "fnt/horror-Origins-demo.ttf"
+            bold: True
+            italic: True
+            color: (0,0,1,1)
+            md_bg_color: "FF69B4"
+            size_hint: (0.83, 0.03)
+            on_release: app.validate_signup()
+            
+        MDSpinner:
+            id: sign_spinner
+            size_hint: None, None
+            size: dp(70), dp(70)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            line_width: 4
+            color: (1,0,0,1)
+            active: False
+
+
+
+
+
+
+
+
+
+
+
+
+        Label:
+            text: "AS Developer"
+            pos_hint: {"center_x":0.5,"center_y":0.05}
+            font_size: "40sp"
+            font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+            bold: True
+            italic: True
+            color: "1A237E"
+
+
+
+
+
+
+
+
+
+
+
+
+<MainScreen>:
+    name: "home"
+    
+    FloatLayout:
+
+        MDLabel:
+            id: empty_main
+            text: "Note: Your employee list is empty, please add your employee from your profile section."
+            halign: "justify"
+            theme_text_color: "Secondary"
+            color: 1,0,0,1
+            font_style: "Body2"
+            size_hint_x: 0.9
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            bold: True
+            opacity: 0
+
+        ScrollView:
+            size_hint: 1, None
+            height: root.height - dp(56)
+            pos_hint: {"top": 0.9}  # Slight gap under TopAppBar
+
+            MDList:
+                id: main_list
+
+                
+
+        
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)  # Dark blue color
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Home"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        NavBar:
+            size_hint: .9, .1
+            pos_hint: {"center_x":0.5,"center_y":0.1}
+            md_bg_color: 1,1,1,1
+            #elevation: 1
+            radius: [16, 16, 16, 16]
+            canvas.before:
+                Color:
+                    rgba: (0.8, 0.8, 0.8, 1)  # white background
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: self.radius
+            GridLayout:
+                cols: 5
+                size_hint_x: .9
+                pos_hint: {"center_x":0.5,"center_y":0.5}
+                spacing: dp(-1)
+                padding: dp(7)
+                MDIconButton:
+                    id: nav_home
+                    icon: "home"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: "FF69B4"
+                    on_release: app.home_screen()
+
+                MDIconButton:
+                    id: nav_entry
+                    icon: "plus-box"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.entry_screen()
+
+                MDIconButton:
+                    id: nav_attendence
+                    icon: "account-check"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.attendence_screen()
+
+                MDIconButton:
+                    id: nav_view
+                    icon: "download"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.view_screen()
+
+                MDIconButton:
+                    id: nav_settings
+                    icon: "cog"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.settings_screen()
+
+        MDSpinner:
+            id: home_spinner
+            size_hint: None, None
+            size: dp(80), dp(80)
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+            active: True
+            color: 1, 0.4, 0.7, 1  # Pink color (same as "Office Hub" text)
+            
+
+        
+
+<EntryScreen>:
+    name: "entry"
+    FloatLayout:
+
+        ScrollView:
+            size_hint: 1, None
+            height: root.height - dp(56)
+            pos_hint: {"top": 0.9}  # Slight gap under TopAppBar
+
+            MDList:
+                id: entry_list
+
+                TwoLineListItem:
+                    text: "InWard Entry?"
+                    secondary_text: "Goods that is purchased fill here."
+                    on_release: app.inward_screen()
+
+                TwoLineListItem:
+                    text: "OutWard Entry?"
+                    secondary_text: "Goods that is sold fill here."
+                    on_release: app.outward_screen()
+
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)  # Dark blue color
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Goods Entry"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        Navigation:
+            size_hint: .9, .1
+            pos_hint: {"center_x":0.5,"center_y":0.1}
+            md_bg_color: 1,1,1,1
+            #elevation: 1
+            radius: [16, 16, 16, 16]
+            canvas.before:
+                Color:
+                    rgba: (0.8, 0.8, 0.8, 1)  # white background
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: self.radius
+            GridLayout:
+                cols: 5
+                size_hint_x: .9
+                pos_hint: {"center_x":0.5,"center_y":0.5}
+                spacing: dp(-1)
+                padding: dp(7)
+                MDIconButton:
+                    id: navigation_home
+                    icon: "home"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.home_screen()
+
+                MDIconButton:
+                    id: navigation_entry
+                    icon: "plus-box"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: "FF69B4"
+                    on_release: app.entry_screen()
+
+                MDIconButton:
+                    id: navigation_attendence
+                    icon: "account-check"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.attendence_screen()
+
+                MDIconButton:
+                    id: navigation_view
+                    icon: "download"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.view_screen()
+
+                MDIconButton:
+                    id: navigation_settings
+                    icon: "cog"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.settings_screen()
+
+
+<AttendenceScreen>:
+    name: "attendence"
+    FloatLayout:
+
+        ScrollView:
+            size_hint: 1, None
+            height: root.height - dp(56)
+            pos_hint: {"top": 0.9}  # Slight gap under TopAppBar
+
+            MDList:
+                id: attendence_list
+
+                TwoLineListItem:
+                    text: "Arrival time?"
+                    secondary_text: "When the employee comes to office fill here."
+                    on_release: app.arrival_screen()
+
+                TwoLineListItem:
+                    text: "Departure time?"
+                    secondary_text: "When the employee goes to home fill here."
+                    on_release: app.departure_screen()
+
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)  # Dark blue color
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Attendence"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        Navigationb:
+            size_hint: .9, .1
+            pos_hint: {"center_x":0.5,"center_y":0.1}
+            md_bg_color: 1,1,1,1
+            #elevation: 1
+            radius: [16, 16, 16, 16]
+            canvas.before:
+                Color:
+                    rgba: (0.8, 0.8, 0.8, 1)  # white background
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: self.radius
+            GridLayout:
+                cols: 5
+                size_hint_x: .9
+                pos_hint: {"center_x":0.5,"center_y":0.5}
+                spacing: dp(-1)
+                padding: dp(7)
+                MDIconButton:
+                    id: navigation_home
+                    icon: "home"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.home_screen()
+
+                MDIconButton:
+                    id: navigation_entry
+                    icon: "plus-box"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.entry_screen()
+
+                MDIconButton:
+                    id: navigation_attendence
+                    icon: "account-check"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: "FF69B4"
+                    on_release: app.attendence_screen()
+
+                MDIconButton:
+                    id: navigation_view
+                    icon: "download"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.view_screen()
+
+                MDIconButton:
+                    id: navigation_settings
+                    icon: "cog"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.settings_screen()
+
+<ViewScreen>:
+    name: "view"
+    FloatLayout:
+
+        ScrollView:
+            size_hint: 1, None
+            height: root.height - dp(56)
+            pos_hint: {"top": 0.9}  # Slight gap under TopAppBar
+
+            MDList:
+                id: view_list
+
+                TwoLineListItem:
+                    text: "InWard Entry"
+                    secondary_text: "Goods that is purchased, Download here."
+                    on_release: app.call_inward_download()
+
+                TwoLineListItem:
+                    text: "OutWard Entry"
+                    secondary_text: "Goods that is sold, Download here."
+                    on_release: app.call_outward_download()
+
+                TwoLineListItem:
+                    text: "Attendence?"
+                    secondary_text: "Attendence, Download here."
+                    on_release: app.call_attendence_download()
+
+
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)  # Dark blue color
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Download"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        Navigationba:
+            size_hint: .9, .1
+            pos_hint: {"center_x":0.5,"center_y":0.1}
+            md_bg_color: 1,1,1,1
+            #elevation: 1
+            radius: [16, 16, 16, 16]
+            canvas.before:
+                Color:
+                    rgba: (0.8, 0.8, 0.8, 1)  # white background
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: self.radius
+            GridLayout:
+                cols: 5
+                size_hint_x: .9
+                pos_hint: {"center_x":0.5,"center_y":0.5}
+                spacing: dp(-1)
+                padding: dp(7)
+                MDIconButton:
+                    id: navigation_home
+                    icon: "home"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.home_screen()
+
+                MDIconButton:
+                    id: navigation_entry
+                    icon: "plus-box"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.entry_screen()
+
+                MDIconButton:
+                    id: navigation_attendence
+                    icon: "account-check"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.attendence_screen()
+
+                MDIconButton:
+                    id: navigation_view
+                    icon: "download"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: "FF69B4"
+                    on_release: app.view_screen()
+
+                MDIconButton:
+                    id: navigation_settings
+                    icon: "cog"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.settings_screen()
+        MDSpinner:
+            id: dndspinner
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            size_hint: None, None
+            size: dp(70), dp(70)
+            line_width: 4
+            color: (1,0,0,1)
+            active: False
+
+
+<SettingsScreen>:
+    name: "settings"
+    FloatLayout:
+
+        ScrollView:
+            size_hint: 1, None
+            height: root.height - dp(56)
+            pos_hint: {"top": 0.9}  # Slight gap under TopAppBar
+
+            MDList:
+                id: main_list
+
+                OneLineListItem:
+                    text: "About App"
+                    on_release: app.aboutappscreen()
+
+                OneLineListItem:
+                    text: "About Developer"
+                    on_release: app.aboutdevscreen()
+
+                OneLineListItem:
+                    text: "Themes"
+                    on_release: app.themescreen()
+
+                OneLineListItem:
+                    text: "Profile"
+                    on_release: app.profile_screen()
+
+
+
+                OneLineListItem:
+                    text: "Exit"
+                    on_release: app.exit()
+                    theme_text_color: "Custom"
+                    text_color: 1,0,0,1
+
+                OneLineListItem:
+                    text: "Log Out"
+                    theme_text_color: "Custom"
+                    text_color: 1,0,0,1
+                    on_release: app.log_out()
+
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1) 
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Settings"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        Navigationbar:
+            size_hint: .9, .1
+            pos_hint: {"center_x":0.5,"center_y":0.1}
+            md_bg_color: 1,1,1,1
+            #elevation: 1
+            radius: [16, 16, 16, 16]
+            canvas.before:
+                Color:
+                    rgba: (0.8, 0.8, 0.8, 1)  # white background
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: self.radius
+            GridLayout:
+                cols: 5
+                size_hint_x: .9
+                pos_hint: {"center_x":0.5,"center_y":0.5}
+                spacing: dp(-1)
+                padding: dp(7)
+                MDIconButton:
+                    id: navigation_home
+                    icon: "home"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.home_screen()
+
+                MDIconButton:
+                    id: navigation_entry
+                    icon: "plus-box"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.entry_screen()
+
+                MDIconButton:
+                    id: navigation_attendence
+                    icon: "account-check"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.attendence_screen()
+
+                MDIconButton:
+                    id: navigation_view
+                    icon: "download"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    on_release: app.view_screen()
+
+                MDIconButton:
+                    id: navigation_settings
+                    icon: "cog"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: "FF69B4"
+                    on_release: app.settings_screen()
+
+<InWardScreen>:
+    name: "inward"
+
+    FloatLayout:
+
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+
+        Label:
+            text: "In Ward"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        Label:
+            text: "InWard Entry"
+            color: 0, 0, 0, 1  
+            font_name: "fnt/horror-Origins-demo.ttf"
+            font_size: "20sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "top": 0.88}
+
+        ScrollView:
+            size_hint: 1, None
+            height: root.height - dp(200)
+            pos_hint: {"center_x": 0.5, "center_y": 0.47}
+
+            BoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                padding: dp(10)
+                spacing: dp(10)
+
+                MDTextField:
+                    id: date_field
+                    hint_text: "Enter Date (DD-MM-YYYY)"
+                    mode: "rectangle"
+                    icon_left: "calendar-today"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: invoice_field
+                    hint_text: "Enter Challan/Bill number"
+                    mode: "rectangle"
+                    icon_left: "file-document"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: time_field
+                    hint_text: "Enter time"
+                    mode: "rectangle"
+                    icon_left: "clock-outline"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: party_field
+                    hint_text: "Enter the name of Party"
+                    mode: "rectangle"
+                    icon_left: "account-tie"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: article_field
+                    hint_text: "Enter the name of Article"
+                    mode: "rectangle"
+                    icon_left: "package-variant"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: qty_field
+                    hint_text: "Enter the Quantity"
+                    mode: "rectangle"
+                    icon_left: "counter"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: amount_field
+                    hint_text: "Enter the Amount"
+                    mode: "rectangle"
+                    icon_left: "currency-inr"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: vehicle_field
+                    hint_text: "Enter the Vehicle number"
+                    mode: "rectangle"
+                    icon_left: "car-info"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDRaisedButton:
+                    text: "Submit your Entry"
+                    disabled: False
+                    text_color: 1, 1, 1, 1
+                    pos_hint: {"center_x":0.5}
+                    font_size: "10sp"
+                    font_name: "fnt/horror-Origins-demo.ttf"
+                    bold: True
+                    italic: True
+                    color: (0,0,1,1)
+                    md_bg_color: "FF69B4"
+                    size_hint: (0.83, 0.03)
+                    on_release: app.inward_entry()
+
+                MDLabel:
+                    text: "Note: You will not be able to Delete/Modify your entry for the Security reason."
+                    halign: "justify"
+                    theme_text_color: "Secondary"
+                    font_style: "Body2"
+                    size_hint_x: 0.9
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+        MDSpinner:
+            id: inward_spinner
+            size_hint: None, None
+            size: dp(70), dp(70)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            line_width: 4
+            color: (1,0,0,1)
+            active: False
+
+                
+        MDBottomAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)
+            elevation: 1
+            pos_hint: {"bottom": 1}
+
+
+
+
+
+
+
+<OutWardScreen>:
+    name: "outward"
+
+    FloatLayout:
+
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+
+        Label:
+            text: "Out Ward"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        Label:
+            text: "OutWard Entry"
+            color: 0, 0, 0, 1  
+            font_name: "fnt/horror-Origins-demo.ttf"
+            font_size: "20sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "top": 0.88}
+
+        ScrollView:
+            size_hint: 1, None
+            height: root.height - dp(200)
+            pos_hint: {"center_x": 0.5, "center_y": 0.47}
+
+            BoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                padding: dp(10)
+                spacing: dp(10)
+
+                MDTextField:
+                    id: date_field_out
+                    hint_text: "Enter Date (DD-MM-YYYY)"
+                    mode: "rectangle"
+                    icon_left: "calendar-today"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: invoice_field_out
+                    hint_text: "Enter Challan/Bill number"
+                    mode: "rectangle"
+                    icon_left: "file-document"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: time_field_out
+                    hint_text: "Enter time"
+                    mode: "rectangle"
+                    icon_left: "clock-outline"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: party_field_out
+                    hint_text: "Enter the name of Party"
+                    mode: "rectangle"
+                    icon_left: "account-tie"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: article_field_out
+                    hint_text: "Enter the name of Article"
+                    mode: "rectangle"
+                    icon_left: "package-variant"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: qty_field_out
+                    hint_text: "Enter the Quantity"
+                    mode: "rectangle"
+                    icon_left: "counter"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: amount_field_out
+                    hint_text: "Enter the Amount"
+                    mode: "rectangle"
+                    icon_left: "currency-inr"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: vehicle_field_out
+                    hint_text: "Enter the Vehicle number"
+                    mode: "rectangle"
+                    icon_left: "car-info"
+                    size_hint_x: None
+                    width: dp(280)
+                    pos_hint: {"center_x": 0.5}
+
+                MDRaisedButton:
+                    text: "Submit your Entry"
+                    disabled: False
+                    text_color: 1, 1, 1, 1
+                    pos_hint: {"center_x":0.5}
+                    font_size: "10sp"
+                    font_name: "fnt/horror-Origins-demo.ttf"
+                    bold: True
+                    italic: True
+                    color: (0,0,1,1)
+                    md_bg_color: "FF69B4"
+                    size_hint: (0.83, 0.03)
+                    on_release: app.outward_entry()
+
+                MDLabel:
+                    text: "Note: You will not be able to Delete/Modify your entry for the Security reason."
+                    halign: "justify"
+                    theme_text_color: "Secondary"
+                    font_style: "Body2"
+                    size_hint_x: 0.9
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+        MDSpinner:
+            id: outward_spinner
+            size_hint: None, None
+            size: dp(70), dp(70)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            line_width: 4
+            color: (1,0,0,1)
+            active: False
+
+                
+        MDBottomAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)
+            elevation: 1
+            pos_hint: {"bottom": 1}
+
+
+
+
+
+
+
+
+
+<ProfileScreen>:
+    name: "profile"
+    FloatLayout:
+
+
+
+        Label:
+            id: dummy
+            text: "Dummy User"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/horror-Origins-demo.ttf"  # Custom font
+            font_size: "20sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.84}
+            #pos_hint: {"top": 0.99}
+            underline: True
+
+        Label:
+            text: "Employee Count --"
+            color: 0, 0, 0, 1 
+            #font_name: "fnt/shimosa.regular.ttf"  
+            font_size: "15sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.25, "center_y": 0.77}
+            #pos_hint: {"top": 0.99}
+            #underline: True
+
+        Label:
+            id: emp_count
+            text: "0"
+            color: 0, 0, 0, 1 
+            #font_name: "fnt/shimosa.regular.ttf"  
+            font_size: "15sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.85, "center_y": 0.77}
+            #pos_hint: {"top": 0.99}
+            #underline: True
+
+        MDFloatingActionButton:
+            icon: "account-plus"
+            md_bg_color: "FF69B4"
+            elevation_normal: 5
+            pos_hint: {"center_x": 0.85, "center_y": 0.37}
+            on_release: app.employee_form_screen()
+
+        #MDFloatingActionButton:
+            #icon: "trash-can"
+            #md_bg_color: "FF69B4"
+            #elevation_normal: 5
+            #pos_hint: {"center_x": 0.85, "center_y": 0.23}
+            #on_release: app.employee_remove_screen()
+
+            
+
+
+
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1) 
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Office  Hub"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+
+
+        Label:
+            text: "AS Developer"
+            pos_hint: {"center_x":0.5,"center_y":0.05}
+            font_size: "40sp"
+            font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+            bold: True
+            italic: True
+            color: "1A237E"
+
+
+
+<EmployeeFormScreen>:
+    name: "employeeform"
+    FloatLayout:
+
+
+        Label:
+            text: "Add Employee"
+            pos_hint: {"center_x":0.5,"center_y":0.85}
+            font_size: "45sp"
+            font_name: "fnt/shimosa.regular.ttf"
+            bold: True
+            italic: True
+            color: "FF69B4"
+
+
+        MDTextField:
+            id: emp_name
+            hint_text: "Enter Employee Name"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            mode: "rectangle"
+            icon_left: "account"
+            #max_text_length: 6
+            #input_filter: "int"
+            pos_hint: {"center_x": 0.5, "center_y": 0.75}
+
+        MDTextField:
+            id: emp_role
+            hint_text: "Enter employee Role"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            mode: "rectangle"
+            icon_left: "key"
+            password: False
+            pos_hint: {"center_x": 0.5, "center_y": 0.65}
+
+        MDTextField:
+            id: emp_salary
+            hint_text: "Enter Employee salary"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            mode: "rectangle"
+            icon_left: "lock-check"
+            password: False
+            pos_hint: {"center_x": 0.5, "center_y": 0.55}
+
+        MDRaisedButton:
+            text: "Add Employee"
+            disabled: False
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x":0.5,"center_y":0.45}
+            font_size: "10sp"
+            font_name: "fnt/horror-Origins-demo.ttf"
+            bold: True
+            italic: True
+            color: (0,0,1,1)
+            md_bg_color: "FF69B4"
+            size_hint: (0.83, 0.03)
+            on_release: app.add_emp_db()
+
+
+
+
+
+
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1) 
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Office  Hub"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+
+
+        Label:
+            text: "AS Developer"
+            pos_hint: {"center_x":0.5,"center_y":0.05}
+            font_size: "40sp"
+            font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+            bold: True
+            italic: True
+            color: "1A237E"
+
+        MDSpinner:
+            id: form_spinner
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"center_x":0.5,"center_y":0.2}
+            active: False
+            color: 1, 0.4, 0.7, 1  # Pink color (same as "Office Hub" text)
+
+<AboutAppScreen>:
+    name: "aboutapp"
+    
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: ""
+            elevation: 4
+            pos_hint: {"top": 1}
+            md_bg_color: 0,0,0,0.5
+
+        ScrollView:
+
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: "20dp"
+                spacing: "30dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDLabel:
+                    text: "Office Management App"
+                    font_size: "15sp"
+                    halign: "center"
+                    color: 1, 0.4, 0.7, 1
+                    bold: True
+                    italic: True
+                    underline: True
+                    font_name: "fnt/horror-Origins-demo.ttf"
+
+                MDLabel:
+                    text: "Version - 1.0.0"
+                    font_size: "15sp"
+                    halign: "center"
+                    color: "FF69B4"
+                    bold: True
+                    italic: True
+                    underline: True
+
+                MDLabel:
+                    text: "The Office Management App is a comprehensive digital solution designed to streamline and simplify everyday administrative tasks in any modern office environment. Built with performance, security, and usability in mind, this app empowers businesses to manage employee data, attendance, and user authentication with ease and efficiency. In today’s fast-paced world, traditional office systems can be slow, error-prone, and difficult to maintain. This app bridges the gap between outdated manual processes and the need for a smart, intuitive platform that works in real-time and adapts to your business needs.\n\nOne of the core features of the app is a robust login and signup system integrated with OTP (One-Time Password) verification via email. This ensures that only verified users can gain access, providing an added layer of security and preventing unauthorized access. The interface is clean and user-friendly, allowing employees and managers to navigate easily without any technical expertise. New users can quickly register, verify their identity via email OTP, and start using the app in just a few minutes.\n\nAttendance management is another key strength of this application. Employees' attendance records can be created, saved, and even auto-filled for specific dates. This means that when a particular date is selected again, the app automatically loads the previous attendance data, including arrival times and present/absent status. This smart feature not only saves time but also ensures accuracy in reporting and auditing. Managers can also get a clear overview of employee punctuality and absenteeism trends over time.\n\nThe app is backed by Firebase integration, which ensures that all user data and attendance records are stored securely in real-time on the cloud. This allows for seamless synchronization across devices and guarantees that your data is always backed up and accessible from anywhere. Whether you are in the office or working remotely, you can always monitor and manage the essential operations without disruption.\n\nAdditionally, the Office Management App has been developed using KivyMD, which brings in the Material Design language, making the app visually appealing and consistent across platforms. The UI is responsive and optimized for mobile as well as desktop devices, ensuring a smooth user experience regardless of screen size. The app also prioritizes data validation, so users cannot submit incomplete or incorrect forms, reducing administrative overhead and improving data quality.\n\nIn summary, this Office Management App is not just a tool but a complete solution for offices aiming to improve productivity, data accuracy, and security. It eliminates the complexity of handling multiple registers, spreadsheets, and manual systems by offering everything in one unified platform. With modern features, real-time data storage, and a sleek design, it is the ideal choice for offices of all sizes seeking digital transformation."
+                    halign: "justify"
+                    theme_text_color: "Primary"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                Label:
+                    text: "AS Developer"
+                    #pos_hint: {"center_x":0.5,"center_y":0.05}
+                    font_size: "40sp"
+                    font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+                    bold: True
+                    italic: True
+                    color: "1A237E"
+
+                Label:
+                    text: ""
+                    #pos_hint: {"center_x":0.5,"center_y":0.05}
+                    font_size: "40sp"
+                    font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+                    bold: True
+                    italic: True
+                    color: "1A237E"
+    Label:
+        text: "Office  Hub"
+        color: 0, 0, 0, 1  # White color for text
+        font_name: "fnt/shimosa.regular.ttf"  # Custom font
+        font_size: "40sp"
+        size_hint: None, None
+        size: "300dp", "50dp"
+        pos_hint: {"center_x": 0.5, "center_y": 0.8}
+        pos_hint: {"top": 0.99}
+    Image:
+        source: "images/logo.png"
+        size_hint: None, None
+        size: dp(50), dp(50)
+        pos_hint: {"top": 0.99, "left": 0}
+        #pos_hint: {"top": 10}
+        #pos_hint: {"left": 1}
+
+
+<AboutDevScreen>:
+    name: "aboutdev"
+    
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: ""
+            elevation: 4
+            pos_hint: {"top": 1}
+            md_bg_color: 0,0,0,0.5
+
+        ScrollView:
+
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: "20dp"
+                spacing: "30dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                Label:
+                    text: ""
+                    #pos_hint: {"center_x":0.5,"center_y":0.05}
+                    font_size: "40sp"
+                    font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+                    bold: True
+                    italic: True
+                    color: "1A237E"
+                Label:
+                    text: "AS Developer"
+                    #pos_hint: {"center_x":0.5,"center_y":0.05}
+                    font_size: "40sp"
+                    font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+                    bold: True
+                    italic: True
+                    color: 1, 0.4, 0.7, 1
+                    underline: True
+
+                Label:
+                    text: ""
+                    #pos_hint: {"center_x":0.5,"center_y":0.05}
+                    font_size: "40sp"
+                    font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+                    bold: True
+                    italic: True
+                    color: "1A237E"
+
+                MDLabel:
+                    text: "This Office Management App has been thoughtfully designed and developed by Ankit, a passionate and dedicated developer with a strong focus on creating user-friendly and efficient digital solutions. With a deep understanding of modern UI/UX principles and practical development experience in KivyMD and Firebase integration, Ankit has built this app with simplicity, speed, and security at its core. His goal has always been to bridge the gap between technology and productivity by providing real-world tools that solve everyday problems in a seamless and intuitive way.\n\nThe development of this app was driven by the desire to reduce manual workload, streamline office operations, and make smart office management accessible to everyone. Ankit believes in writing clean, maintainable code and designing interfaces that feel natural to use. Every feature, from secure OTP verification to auto-filled attendance records, has been added with careful planning and a deep understanding of actual office needs. Through this app, Ankit aims to contribute to the digital transformation of workplaces and empower businesses to work smarter, not harder."
+                    halign: "justify"
+                    theme_text_color: "Primary"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+
+                Label:
+                    text: "AS Developer"
+                    #pos_hint: {"center_x":0.5,"center_y":0.05}
+                    font_size: "40sp"
+                    font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+                    bold: True
+                    italic: True
+                    color: "1A237E"
+
+                Label:
+                    text: ""
+                    #pos_hint: {"center_x":0.5,"center_y":0.05}
+                    font_size: "40sp"
+                    font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+                    bold: True
+                    italic: True
+                    color: "1A237E"
+    Label:
+        text: "Office  Hub"
+        color: 0, 0, 0, 1  # White color for text
+        font_name: "fnt/shimosa.regular.ttf"  # Custom font
+        font_size: "40sp"
+        size_hint: None, None
+        size: "300dp", "50dp"
+        pos_hint: {"center_x": 0.5, "center_y": 0.8}
+        pos_hint: {"top": 0.99}
+    Image:
+        source: "images/logo.png"
+        size_hint: None, None
+        size: dp(50), dp(50)
+        pos_hint: {"top": 0.99, "left": 0}
+        #pos_hint: {"top": 10}
+        #pos_hint: {"left": 1}
+
+<ThemeScreen>:
+    name: "themes"
+    FloatLayout:
+
+        OneLineListItem:
+            text: "Dark Mode"
+            font_size: "18sp"
+            halign: "center"
+            color: 0,0,0,0.5
+            bold: True
+            italic: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            disabled: True
+
+        MDSwitch:
+            pos_hint: {"center_x": 0.8, "center_y": 0.79}
+            on_active: app.toggle_theme()
+
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1) 
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+
+        Label:
+            text: "Office  Hub"
+            color: 0, 0, 0, 1
+            font_name: "fnt/shimosa.regular.ttf"
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "top": 0.99}
+
+        MDLabel:
+            text: "Note: This app is currently not fully optimized for Dark Mode. Some visual components, including text and backgrounds, may not display correctly. For the best experience, please use Light Mode, when you'll restart your app this will change theme to light mode automatically."
+            halign: "justify"
+            theme_text_color: "Secondary"
+            font_style: "Body2"
+            size_hint_x: 0.9
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.5, "center_y": 0.6}
+
+
+
+
+
+<ArrivalScreen>:
+    name: "arrival"
+    FloatLayout:
+        MDLabel:
+            id: empty_arrival
+            text: "Note: Your employee list is empty, please add your employee from your profile section."
+            halign: "justify"
+            theme_text_color: "Secondary"
+            color: 1,0,0,1
+            font_style: "Body2"
+            size_hint_x: 0.9
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            bold: True
+            opacity: 0
+
+        ScrollView:
+            size_hint: 1, None
+            height: root.height - dp(56)
+            pos_hint: {"top": 0.9}  # Slight gap under TopAppBar
+
+            MDList:
+                id: arrival_list
+
+                
+
+        
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)  # Dark blue color
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Arrival"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        
+        MDSpinner:
+            id: arrival_spinner
+            size_hint: None, None
+            size: dp(80), dp(80)
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+            active: True
+            color: 1, 0.4, 0.7, 1  # Pink color (same as "Office Hub" text)
+
+
+<DepartureScreen>:
+    name: "departure"
+    FloatLayout:
+        MDLabel:
+            id: empty_departure
+            text: "Note: Your employee list is empty, please add your employee from your profile section."
+            halign: "justify"
+            theme_text_color: "Secondary"
+            color: 1,0,0,1
+            font_style: "Body2"
+            size_hint_x: 0.9
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            bold: True
+            opacity: 0
+
+        ScrollView:
+            size_hint: 1, None
+            height: root.height - dp(56)
+            pos_hint: {"top": 0.9}  # Slight gap under TopAppBar
+
+            MDList:
+                id: departure_list
+
+                
+
+        
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)  # Dark blue color
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Departure"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        
+        MDSpinner:
+            id: departure_spinner
+            size_hint: None, None
+            size: dp(80), dp(80)
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+            active: True
+            color: 1, 0.4, 0.7, 1  # Pink color (same as "Office Hub" text)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<FillAttendenceScreen>:
+    name: "fillatt"
+    FloatLayout:
+
+        Label:
+            id: user_att
+            text: "Office-Hub User"
+            color: 0, 0, 0, 1  
+            font_name: "fnt/horror-Origins-demo.ttf"
+            font_size: "20sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "top": 0.88}
+
+
+        MDTextField:
+            id: emp_date
+            hint_text: "Enter Attendence Date"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            mode: "rectangle"
+            icon_left: "calendar-today"
+            #max_text_length: 6
+            #input_filter: "int"
+            pos_hint: {"center_x": 0.5, "center_y": 0.75}
+
+        MDTextField:
+            id: emp_time
+            hint_text: "Enter Time or Absent"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            mode: "rectangle"
+            icon_left: "clock"
+            #max_text_length: 6
+            #input_filter: "int"
+            pos_hint: {"center_x": 0.5, "center_y": 0.63}
+
+        OneLineListItem:
+            text: "Sunday Today"
+            disabled: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.53}
+        MDSwitch:
+            id: sunday
+            pos_hint: {"center_x": 0.8, "center_y": 0.51}
+            thumb_color: "red"
+            track_color_active: "red"
+            track_color_inactive: "green"
+            on_active: app.toggle_sunday(self, self.active)
+        OneLineListItem:
+            text: "Closed Today"
+            disabled: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.45}
+        MDSwitch:
+            id: closed
+            pos_hint: {"center_x": 0.8, "center_y": 0.43}
+            thumb_color: "red"
+            track_color_active: "red"
+            track_color_inactive: "green"
+            on_active: app.toggle_closed(self, self.active)
+
+        MDRaisedButton:
+            text: "Submit Attendence"
+            disabled: False
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x":0.5,"center_y":0.35}
+            font_size: "10sp"
+            font_name: "fnt/horror-Origins-demo.ttf"
+            bold: True
+            italic: True
+            color: (0,0,1,1)
+            md_bg_color: "FF69B4"
+            size_hint: (0.83, 0.03)
+            on_release: app.submit_attendence()
+
+        MDLabel:
+            text: "Note: You will not be able to Delete/Modify your attendence for the Security reason."
+            halign: "justify"
+            theme_text_color: "Secondary"
+            font_style: "Body2"
+            size_hint_x: 0.9
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.5, "center_y": 0.22}
+
+        
+
+
+
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)  # Dark blue color
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Arrival"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        
+        MDSpinner:
+            id: fillatt_spinner
+            size_hint: None, None
+            size: dp(80), dp(80)
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+            active: False
+            color: 1, 0.4, 0.7, 1  # Pink color (same as "Office Hub" text)
+
+
+
+
+<FillDepAttendenceScreen>:
+    name: "fillattdep"
+    FloatLayout:
+
+        Label:
+            id: user_att_dep
+            text: "Office-Hub User"
+            color: 0, 0, 0, 1  
+            font_name: "fnt/horror-Origins-demo.ttf"
+            font_size: "20sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "top": 0.88}
+
+
+        MDTextField:
+            id: emp_date_dep
+            hint_text: "Enter Attendence Date"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            mode: "rectangle"
+            icon_left: "calendar-today"
+            #max_text_length: 6
+            #input_filter: "int"
+            pos_hint: {"center_x": 0.5, "center_y": 0.75}
+
+        MDTextField:
+            id: emp_time_dep
+            hint_text: "Enter Time or Absent"
+            helper_text: ""
+            size_hint_x: None
+            width: dp(250)
+            mode: "rectangle"
+            icon_left: "clock"
+            #max_text_length: 6
+            #input_filter: "int"
+            pos_hint: {"center_x": 0.5, "center_y": 0.63}
+
+        OneLineListItem:
+            text: "Sunday Today"
+            disabled: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.53}
+        MDSwitch:
+            id: sunday_dep
+            pos_hint: {"center_x": 0.8, "center_y": 0.51}
+            thumb_color: "red"
+            track_color_active: "red"
+            track_color_inactive: "green"
+            on_active: app.toggle_sunday(self, self.active)
+        OneLineListItem:
+            text: "Closed Today"
+            disabled: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.45}
+        MDSwitch:
+            id: closed_dep
+            pos_hint: {"center_x": 0.8, "center_y": 0.43}
+            thumb_color: "red"
+            track_color_active: "red"
+            track_color_inactive: "green"
+            on_active: app.toggle_closed(self, self.active)
+
+        MDRaisedButton:
+            text: "Submit Attendence"
+            disabled: False
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x":0.5,"center_y":0.35}
+            font_size: "10sp"
+            font_name: "fnt/horror-Origins-demo.ttf"
+            bold: True
+            italic: True
+            color: (0,0,1,1)
+            md_bg_color: "FF69B4"
+            size_hint: (0.83, 0.03)
+            on_release: app.submit_attendence_dep()
+
+        MDLabel:
+            text: "Note: You will not be able to Delete/Modify your attendence for the Security reason."
+            halign: "justify"
+            theme_text_color: "Secondary"
+            font_style: "Body2"
+            size_hint_x: 0.9
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.5, "center_y": 0.22}
+
+        
+
+
+
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)  # Dark blue color
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Departure"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        
+        MDSpinner:
+            id: fillattdep_spinner
+            size_hint: None, None
+            size: dp(80), dp(80)
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+            active: False
+            color: 1, 0.4, 0.7, 1 
+
+
+<DeleteScreen>:
+    name: "delete"
+    FloatLayout:
+        MDLabel:
+            id: empty_delete
+            text: "Note: Your employee list is empty, please add your employee from your profile section."
+            halign: "justify"
+            theme_text_color: "Secondary"
+            color: 1,0,0,1
+            font_style: "Body2"
+            size_hint_x: 0.9
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            bold: True
+            opacity: 0
+
+        ScrollView:
+            size_hint: 1, None
+            height: root.height - dp(56)
+            pos_hint: {"top": 0.9}  # Slight gap under TopAppBar
+
+            MDList:
+                id: delete_list
+
+                
+
+        
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)  # Dark blue color
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Delete"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        
+        MDSpinner:
+            id: delete_spinner
+            size_hint: None, None
+            size: dp(80), dp(80)
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+            active: True
+            color: 1, 0.4, 0.7, 1  # Pink color (same as "Office Hub" text)
+
+
+
+
+<DeleScreen>:
+    name: "dele"
+    FloatLayout:
+
+        Label:
+            id: dele_label
+            text: "Office-Hub User"
+            color: 0, 0, 0, 1  
+            font_name: "fnt/horror-Origins-demo.ttf"
+            font_size: "20sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "top": 0.88}
+
+
+        MDRaisedButton:
+            text: "Delete this Employee"
+            disabled: False
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x":0.5,"center_y":0.75}
+            font_size: "10sp"
+            font_name: "fnt/horror-Origins-demo.ttf"
+            bold: True
+            italic: True
+            color: (0,0,1,1)
+            md_bg_color: "FF69B4"
+            size_hint: (0.83, 0.03)
+            on_release: app.delete_employee()
+
+        MDLabel:
+            text: "Note: You will not be able to recover this employee. the attendance of employee will remove also."
+            halign: "justify"
+            theme_text_color: "Secondary"
+            font_style: "Body2"
+            size_hint_x: 0.9
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.5, "center_y": 0.65}
+
+        
+
+
+
+        MDTopAppBar:
+            title: ""
+            size_hint_y: None
+            height: "56dp"
+            md_bg_color: (0.8, 0.8, 0.8, 1)  # Dark blue color
+            elevation: 1
+            pos_hint: {"top": 1}
+
+        Image:
+            source: "images/logo.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"top": 0.99, "left": 0}
+            #pos_hint: {"top": 10}
+            #pos_hint: {"left": 1}
+            
+
+        
+        Label:
+            text: "Delete"
+            color: 0, 0, 0, 1  # White color for text
+            font_name: "fnt/shimosa.regular.ttf"  # Custom font
+            font_size: "40sp"
+            size_hint: None, None
+            size: "300dp", "50dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            pos_hint: {"top": 0.99}
+
+        
+        MDSpinner:
+            id: dele_spinner
+            size_hint: None, None
+            size: dp(80), dp(80)
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+            active: False
+            color: 1, 0.4, 0.7, 1 
+
+        Label:
+            text: "AS Developer"
+            pos_hint: {"center_x":0.5,"center_y":0.05}
+            font_size: "40sp"
+            font_name: "fnt/perfecto-calligraphy-personal-use.regular.ttf" 
+            bold: True
+            italic: True
+            color: "1A237E"
+

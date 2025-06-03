@@ -1,0 +1,31 @@
+# 🔐 Secret Files (Don't upload to GitHub)
+config.py
+office-hub.json
+
+
+# 🧪 Virtual Environment
+.venv/
+env/
+venv/
+
+# 🐍 Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 🖼️ OS & Editor files
+.DS_Store
+Thumbs.db
+*.swp
+
+# 📦 Packaging/build
+*.egg-info/
+*.dist-info/
+build/
+dist/
+
+# ⚙️ Logs & IDE
+*.log
+.vscode/
+.idea/

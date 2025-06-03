@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Email</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .content {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .otp {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            letter-spacing: 4px;
+            margin: 20px 0;
+        }
+
+        .footer {
+            background: #f9f9f9;
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            color: #777;
+            border-radius: 0 0 10px 10px;
+        }
+
+        img {
+            width: 120px;
+            opacity: 0;
+            animation: fadeInOut 5s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .otp {
+                font-size: 28px;
+            }
+        }
+
+
+        div h1 {
+            color: #1A237E;
+            font-family: "fnt/perfecto-calligraphy-personal-use.regular.ttf";
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h2>🔐 One Time Password</h2>
+        </div>
+        <div class="content">
+            <img src="images/logo.png" alt="Office-Hub logo">
+            <p>Hi there! 👋</p>
+            <p>Use the following OTP to complete your verification:</p>
+            <div class="otp">{{ OTP_CODE }}</div> <!-- Python placeholder -->
+            <p>This OTP is valid for the next 10 minutes.</p>
+            <h1>
+                AS Developer
+            </h1>
+        </div>
+        <div class="footer">
+            If you didn’t request this, you can safely ignore this email.
+        </div>
+    </div>
+</body>
+
+</html>
